@@ -22,6 +22,16 @@ The goal of this project is to build a reusable Godot master game that can gener
 - ComfyUI for local AI asset generation
 - Git / GitHub
 
+## Runtime game configuration
+
+Source-of-truth game definitions live in `configs/games`. Android exports can only read files inside Godot's `res://` tree, so the build pipeline must sync the selected definition to `godot/masterGame/configs/prototype.json` before opening or exporting the game:
+
+```powershell
+.\automation\generators\sync_game_config.ps1 -GameId prototype
+```
+
+`ConfigManager` only loads the runtime copy; gameplay scripts never parse JSON directly.
+
 ## Project Structure
 
 ```text

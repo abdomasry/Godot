@@ -1,0 +1,87 @@
+class_name Player
+extends CharacterBody2D
+
+
+signal health_changed(current_health: float, max_health: float)
+signal died
+
+
+@export var max_health: float = 100.0
+@export var damage: float = 10.0
+@export var attack_speed: float = 1.0
+@export var attack_range: float = 300.0
+@export var movement_speed: float = 200.0
+
+
+var current_health: float
+var attack_cooldown: float = 0.0
+
+
+func _ready() -> void:
+	current_health = max_health
+
+
+func _physics_process(delta: float) -> void:
+	attack_cooldown = max(attack_cooldown - delta, 0.0)
+
+	auto_attack()
+
+
+func auto_attack() -> void:
+	if attack_cooldown > 0.0:
+		return
+
+	var target := get_nearest_enemy()
+
+	if target == null:
+		return
+
+	var distance := global_position.distance_to(target.global_position)
+
+	if distance > attack_range:
+		return
+
+	target.take_damage(damage)
+
+	attack_cooldown = 1.0 / attack_speed
+
+
+func get_nearest_enemy() -> Enemy:
+	var enemies := get_tree().get_nodes_in_group("enemies")
+
+	var nearest_enemy: Enemy = null
+	var nearest_distance := INF
+
+	for node in enemies:
+		if not node is Enemy:
+			continue
+
+		var enemy := node as Enemy
+		var distance := global_position.distance_to(enemy.global_position)
+
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest_enemy = enemy
+
+	return nearest_enemy
+
+
+func take_damage(amount: float) -> void:
+	current_health -= amount
+	current_health = max(current_health, 0.0)
+
+	health_changed.emit(current_health, max_health)
+
+	if current_health <= 0.0:
+		die()
+
+
+func heal(amount: float) -> void:
+	current_health += amount
+	current_health = min(current_health, max_health)
+
+	health_changed.emit(current_health, max_health)
+
+
+func die() -> void:
+	died.emit()

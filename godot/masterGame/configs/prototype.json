@@ -1,0 +1,74 @@
+{
+  "id": "prototype_survivor",
+  "name": "Prototype Survivor",
+  "version": "0.1.0",
+
+  "theme": {
+    "id": "prototype",
+    "environment": "arena"
+  },
+
+  "player": {
+    "max_health": 100,
+    "damage": 10,
+    "attack_speed": 1.0,
+    "movement_speed": 200,
+    "critical_chance": 0.05,
+    "critical_multiplier": 2.0
+  },
+
+  "enemy": {
+    "base_health": 30,
+    "base_damage": 5,
+    "movement_speed": 80,
+    "health_growth_per_wave": 1.12,
+    "damage_growth_per_wave": 1.08
+  },
+
+  "waves": {
+    "starting_enemy_count": 5,
+    "enemy_growth_per_wave": 1.15,
+    "wave_duration_seconds": 30,
+    "boss_every": 5
+  },
+
+  "economy": {
+    "starting_coins": 0,
+    "coin_per_kill": 3,
+    "boss_coin_reward": 30,
+
+    "upgrade_cost": {
+      "damage": 20,
+      "attack_speed": 25,
+      "health": 20
+    },
+
+    "upgrade_cost_growth": 1.25
+  },
+
+  "upgrades": {
+    "damage": {
+      "increase": 2
+    },
+
+    "attack_speed": {
+      "increase": 0.1
+    },
+
+    "health": {
+      "increase": 10
+    }
+  },
+
+  "premium_currency": {
+    "enabled": false,
+    "name": "gems"
+  },
+
+  "ads": {
+    "enabled": false,
+    "rewarded_revive": false,
+    "rewarded_double_coins": false,
+    "rewarded_gems": false
+  }
+}
