@@ -1,0 +1,57 @@
+
+وحط ده في `.gitignore`:
+
+```gitignore
+# Godot
+.godot/
+.import/
+*.tmp
+
+# Godot export/build files
+builds/*
+!builds/android/
+!builds/android/.gitkeep
+
+# Generated assets
+assets/generated/*
+!assets/generated/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Android
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Temporary
+temp/
+tmp/
+cache/
