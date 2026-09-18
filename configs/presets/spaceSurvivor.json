@@ -1,0 +1,8 @@
+{
+  "metadata": { "id": "spaceSurvivor", "display_name": "Space Survivor", "version": "0.1.0" },
+  "theme": { "id": "space", "display_name": "Nebula Frontier" },
+  "gameplay": {"combat_style":"space"},
+  "terminology": { "soft_currency_name": "Alloy", "player_name": "Pilot", "enemy_name": "Drone" },
+  "randomization": { "player.damage": { "min": 9, "max": 12 } },
+  "enemies": { "archetypes": { "normal": { "color": "38bdf8" }, "fast": { "color": "22d3ee" }, "tank": { "color": "64748b" }, "elite": { "color": "c084fc" }, "boss": { "color": "f97316" } } }
+}

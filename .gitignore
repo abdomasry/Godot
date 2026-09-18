@@ -1,7 +1,4 @@
 
-وحط ده في `.gitignore`:
-
-```gitignore
 # Godot
 .godot/
 .import/
@@ -16,6 +13,11 @@ builds/*
 assets/generated/*
 !assets/generated/.gitkeep
 
+# Reproducible factory output and active generated runtime config
+generated/*
+!generated/.gitkeep
+godot/masterGame/configs/active_game.json
+
 # Python
 __pycache__/
 *.py[cod]
@@ -24,6 +26,7 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.tools/
 venv/
 env/
 
@@ -48,6 +51,7 @@ desktop.ini
 # Android
 *.apk
 *.aab
+*.idsig
 *.keystore
 *.jks
 

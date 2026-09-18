@@ -1,0 +1,54 @@
+{
+  "models": [
+    {
+      "file": "qwen_3_4b.safetensors",
+      "bytes": 8044982048,
+      "sha256": "6c671498573ac2f7a5501502ccce8d2b08ea6ca2f661c458e708f36b36edfc5a",
+      "source_status": "SHA256 matches official repository LFS metadata, checked 2026-09-18",
+      "source": "https://huggingface.co/Comfy-Org/z_image/blob/main/split_files/text_encoders/qwen_3_4b.safetensors",
+      "model_family_license": "Apache-2.0"
+    },
+    {
+      "file": "flux-2-klein-base-4b-fp8.safetensors",
+      "bytes": 4089498488,
+      "sha256": "44bab3a86fe98b85d21dd2a4729ebdc3ae51fb8a39f76e457e18c724219e6840",
+      "model_family_license": "Apache-2.0",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4b-fp8/blob/main/flux-2-klein-base-4b-fp8.safetensors",
+      "source_status": "SHA256 matches official repository LFS metadata, checked 2026-09-18"
+    },
+    {
+      "file": "full_encoder_small_decoder.safetensors",
+      "bytes": 249519092,
+      "sha256": "ea4273f02d1fafbf8e1d1c2cf6018ed8748652eb0bf34f2dd91171f16f15ab62",
+      "model_family_license": "Apache-2.0",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-small-decoder/blob/main/full_encoder_small_decoder.safetensors",
+      "source_status": "SHA256 matches official repository LFS metadata, checked 2026-09-18"
+    }
+  ],
+  "assets": {
+    "zombie": {
+      "source": "zombie_arena_clean_00001_.png",
+      "sha256": "7be6df37f0cebe14647cbc51a7ab4a050e9affd8c0edaaf5994038d56ff8a723",
+      "workflow_sha256": "7f502dda1f8c8ada7df84bcf37b5d78c62dea7f7efd88b3e6a8be5a05e126d4e",
+      "job": "zombie_arena_clean_7f502dda1f8c"
+    },
+    "space": {
+      "source": "space_arena_00001_.png",
+      "sha256": "2e9274f7bc72f542046c48a95accb3c21470267afe24288449d6eb965051d537",
+      "workflow_sha256": "2a26fd97f1b818d95027f69e6f2786ca331dea26a8c4d8ac3d5964893ce93343",
+      "job": "space_arena_2a26fd97f1b8"
+    },
+    "ninja": {
+      "source": "ninja_arena_00001_.png",
+      "sha256": "e2e21c28c66161f05fcf1676b7704c88e9b1e3ea5927c1df26c7ee312e5b141b",
+      "workflow_sha256": "3eb7ceca7d1fc07299a79f107fc0890c76bee996ec86062b7b85d7ea3d1ba868",
+      "job": "ninja_arena_3eb7ceca7d1f"
+    }
+  },
+  "release_approved": false,
+  "review": "Agent visual inspection: clear empty arena centers, restrained backgrounds, no baked-in actors. Device readability still requires QA.",
+  "rejected": [
+    "zombie_walk_sheet_00001_.png: inconsistent poses; replaced with original layered rig animation",
+    "zombie_arena_00001_.png: baked-in character-like objects"
+  ]
+}

@@ -13,10 +13,14 @@ config_version=5
 config/name="Mobile Game Factory"
 run/main_scene="res://scenes/main/Main.tscn"
 config/features=PackedStringArray("4.7")
+config/icon="res://assets/app_icon.svg"
 
 [autoload]
 
 ConfigManager="*res://scripts/core/ConfigManager.gd"
+MetaProgression="*res://scripts/core/MetaProgression.gd"
+RewardedAds="*res://scripts/core/RewardedAds.gd"
+GameAudio="*res://scripts/core/GameAudio.gd"
 
 [display]
 
@@ -26,8 +30,10 @@ window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

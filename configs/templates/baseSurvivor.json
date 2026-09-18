@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "0.1.0",
+  "metadata": { "id": "baseSurvivor", "display_name": "Base Survivor", "version": "0.1.0" },
+  "theme": { "id": "prototype", "display_name": "Prototype", "environment": "arena" },
+  "terminology": { "soft_currency_name": "Coins", "premium_currency_name": "Gems", "player_name": "Survivor", "enemy_name": "Enemy" },
+  "player": { "max_health": 100, "damage": 10, "attack_speed": 1.0, "movement_speed": 200, "critical_chance": 0.05, "critical_multiplier": 2.0 },
+  "weapons": {
+    "starting_weapon": "basic_projectile",
+    "definitions": {
+      "basic_projectile": { "type": "projectile", "damage": 10, "cooldown": 0.7, "projectile_speed": 560, "range": 560 },
+      "area_pulse": { "type": "area", "damage": 7, "cooldown": 3.0, "radius": 145 }
+    }
+  },
+  "enemies": {
+    "base": { "base_health": 30, "base_damage": 5, "movement_speed": 80, "health_growth_per_wave": 1.12, "damage_growth_per_wave": 1.08 },
+    "archetypes": {
+      "normal": { "health_multiplier": 1.0, "damage_multiplier": 1.0, "speed_multiplier": 1.0, "reward_multiplier": 1.0, "visual_scale": 1.0, "color": "ef476f" },
+      "fast": { "health_multiplier": 0.65, "damage_multiplier": 0.7, "speed_multiplier": 1.6, "reward_multiplier": 0.8, "visual_scale": 0.82, "color": "ffd166" },
+      "tank": { "health_multiplier": 2.5, "damage_multiplier": 1.35, "speed_multiplier": 0.6, "reward_multiplier": 2.0, "visual_scale": 1.28, "color": "8ac926" },
+      "elite": { "health_multiplier": 2.0, "damage_multiplier": 1.6, "speed_multiplier": 1.15, "reward_multiplier": 3.0, "visual_scale": 1.14, "color": "a78bfa" },
+      "boss": { "health_multiplier": 7.0, "damage_multiplier": 2.2, "speed_multiplier": 0.55, "reward_multiplier": 10.0, "visual_scale": 1.8, "color": "fb923c" }
+    }
+  },
+  "waves": {
+    "starting_enemy_count": 5,
+    "enemy_growth_per_wave": 1.15,
+    "wave_duration_seconds": 45,
+    "spawn_pools": [
+      { "min_wave": 1, "entries": [{ "id": "normal", "weight": 100 }] },
+      { "min_wave": 3, "entries": [{ "id": "normal", "weight": 70 }, { "id": "fast", "weight": 30 }] },
+      { "min_wave": 5, "entries": [{ "id": "normal", "weight": 50 }, { "id": "fast", "weight": 30 }, { "id": "tank", "weight": 20 }] },
+      { "min_wave": 8, "entries": [{ "id": "normal", "weight": 40 }, { "id": "fast", "weight": 25 }, { "id": "tank", "weight": 25 }, { "id": "elite", "weight": 10 }] }
+    ]
+  },
+  "bosses": { "archetype": "boss", "every": 5, "additional_enemies": 2 },
+  "economy": { "starting_coins": 0, "coin_per_kill": 3, "boss_coin_reward": 30 },
+  "upgrades": {
+    "definitions": [
+      { "id": "player_damage", "display_name": "Sharpened Core", "description": "Player damage +2", "category": "player", "target": "damage", "value": 2, "max_level": 12 },
+      { "id": "player_attack_speed", "display_name": "Rapid Fire", "description": "Attack speed +0.12", "category": "player", "target": "attack_speed", "value": 0.12, "max_level": 10 },
+      { "id": "player_health", "display_name": "Reinforced Hull", "description": "Max health +15", "category": "player", "target": "max_health", "value": 15, "max_level": 8 },
+      { "id": "crit_chance", "display_name": "Lucky Circuit", "description": "Critical chance +5%", "category": "player", "target": "critical_chance", "value": 0.05, "max_level": 6 },
+      { "id": "crit_multiplier", "display_name": "Critical Core", "description": "Critical multiplier +0.35", "category": "player", "target": "critical_multiplier", "value": 0.35, "max_level": 6 },
+      { "id": "projectile_damage", "display_name": "Heavy Rounds", "description": "Projectile damage +3", "category": "weapon", "weapon": "basic_projectile", "target": "damage", "value": 3, "max_level": 10 },
+      { "id": "projectile_speed", "display_name": "Accelerated Rounds", "description": "Projectile speed +90", "category": "weapon", "weapon": "basic_projectile", "target": "projectile_speed", "value": 90, "max_level": 6 },
+      { "id": "projectile_cooldown", "display_name": "Quick Loader", "description": "Projectile cooldown -0.08", "category": "weapon", "weapon": "basic_projectile", "target": "cooldown", "value": -0.08, "max_level": 6 },
+      { "id": "unlock_area_pulse", "display_name": "Unlock Area Pulse", "description": "Gain a periodic close-range pulse", "category": "unlock", "weapon": "area_pulse", "max_level": 1 },
+      { "id": "pulse_damage", "display_name": "Pulse Amplifier", "description": "Area Pulse damage +3", "category": "weapon", "weapon": "area_pulse", "target": "damage", "value": 3, "max_level": 8 },
+      { "id": "pulse_radius", "display_name": "Wide Pulse", "description": "Area Pulse radius +20", "category": "weapon", "weapon": "area_pulse", "target": "radius", "value": 20, "max_level": 6 },
+      { "id": "pulse_cooldown", "display_name": "Pulse Capacitor", "description": "Area Pulse cooldown -0.3", "category": "weapon", "weapon": "area_pulse", "target": "cooldown", "value": -0.3, "max_level": 6 },
+      { "id": "repair", "display_name": "Emergency Repair", "description": "Restore 30% max health", "category": "utility", "target": "heal_percent", "value": 0.3, "max_level": 4 },
+      { "id": "coin_bonus", "display_name": "Gold Magnet", "description": "Coin rewards +15%", "category": "utility", "target": "coin_multiplier", "value": 0.15, "max_level": 6 }
+      ,{ "id": "unlock_companion", "display_name": "Drone Companion", "description": "Unlock a drone that fires with you", "category": "companion", "max_level": 1 }
+      ,{ "id": "unlock_nova", "display_name": "Nova Burst", "description": "Unlock a charged emergency blast", "category": "special", "target": "nova_damage", "value": 45, "max_level": 1 }
+      ,{ "id": "nova_radius", "display_name": "Nova Radius", "description": "Nova blast radius +35", "category": "special", "target": "nova_radius", "value": 35, "max_level": 5, "prerequisites": ["unlock_nova"] }
+    ]
+  },
+  "gameplay": { "portrait_viewport": true, "enemy_spawn_margin": 56 }
+}

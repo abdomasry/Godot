@@ -1,0 +1,12 @@
+{
+  "metadata": { "id": "ninjaSurvivor", "display_name": "Ninja Survivor", "version": "0.1.0" },
+  "theme": { "id": "ninja", "display_name": "Moonlit Dojo" },
+  "gameplay": {"combat_style":"ninja"},
+  "terminology": { "soft_currency_name": "Tokens", "player_name": "Ninja", "enemy_name": "Raider" },
+  "player": { "max_health": 140, "critical_chance": 0.12, "critical_multiplier": 2.25 },
+  "waves": { "starting_enemy_count": 4, "enemy_growth_per_wave": 1.1 },
+  "enemies": {
+    "base": { "base_damage": 2.5 },
+    "archetypes": { "normal": { "color": "dc2626" }, "fast": { "color": "f97316" }, "tank": { "color": "374151" }, "elite": { "color": "7c3aed" }, "boss": { "color": "111827" } }
+  }
+}

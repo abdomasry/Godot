@@ -52,19 +52,19 @@ text = "Choose an upgrade"
 horizontal_alignment = 1
 
 [node name="Damage" type="Button" parent="Center/Panel/Margin/Choices"]
-custom_minimum_size = Vector2(0, 78)
+custom_minimum_size = Vector2(0, 112)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Damage +2"
 
 [node name="AttackSpeed" type="Button" parent="Center/Panel/Margin/Choices"]
-custom_minimum_size = Vector2(0, 78)
+custom_minimum_size = Vector2(0, 112)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Attack Speed +0.1"
 
 [node name="Health" type="Button" parent="Center/Panel/Margin/Choices"]
-custom_minimum_size = Vector2(0, 78)
+custom_minimum_size = Vector2(0, 112)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Max Health +10"

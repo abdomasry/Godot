@@ -1,0 +1,5 @@
+local_existing_models:
+  base_path: A:/Programs/ai_generating
+  text_encoders: .
+  diffusion_models: ComfyUI_windows_portable/ComfyUI/models/diffusion_models
+  vae: ComfyUI_windows_portable/ComfyUI/models/vae

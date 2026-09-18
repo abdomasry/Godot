@@ -1,0 +1,11 @@
+{
+  "metadata": { "id": "zombieSurvivor", "display_name": "Zombie Survivor", "version": "0.1.0" },
+  "theme": { "id": "zombie", "display_name": "Zombie Outbreak" },
+  "terminology": { "soft_currency_name": "Scrap", "player_name": "Hunter", "enemy_name": "Zombie" },
+  "player": { "max_health": 140 },
+  "enemies": {
+    "base": { "base_damage": 2.5 },
+    "archetypes": { "normal": { "color": "6b8e23" }, "fast": { "color": "b5d334" }, "tank": { "color": "556b2f" }, "elite": { "color": "7c3aed" }, "boss": { "color": "14532d" } }
+  },
+  "waves": { "starting_enemy_count": 4, "enemy_growth_per_wave": 1.1 }
+}

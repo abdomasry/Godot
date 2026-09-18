@@ -1,7 +1,8 @@
 extends Node
 
-const DEFAULT_CONFIG_PATH := "res://configs/prototype.json"
-const REQUIRED_SECTIONS := ["player", "enemy", "waves", "economy", "upgrades"]
+const DEFAULT_CONFIG_PATH := "res://configs/active_game.json"
+const FALLBACK_CONFIG_PATH := "res://configs/prototype.json"
+const REQUIRED_SECTIONS := ["player", "enemy", "enemy_archetypes", "weapons", "waves", "economy", "upgrades"]
 
 var config: Dictionary = {}
 var last_error: String = ""
@@ -9,9 +10,13 @@ var last_error: String = ""
 func load_config(path: String = DEFAULT_CONFIG_PATH) -> bool:
 	config.clear()
 	last_error = ""
-	if not FileAccess.file_exists(path):
-		return fail("Game configuration is missing: %s" % path)
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var resolved_path := path
+	if path == DEFAULT_CONFIG_PATH and not FileAccess.file_exists(path):
+		resolved_path = FALLBACK_CONFIG_PATH
+		push_warning("No active generated config found; using the prototype compatibility config.")
+	if not FileAccess.file_exists(resolved_path):
+		return fail("Game configuration is missing: %s" % resolved_path)
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(resolved_path))
 	if not parsed is Dictionary:
 		return fail("Game configuration must contain a JSON object: %s" % path)
 	for section in REQUIRED_SECTIONS:
@@ -36,6 +41,18 @@ func get_player_config() -> Dictionary:
 
 func get_enemy_config() -> Dictionary:
 	return get_section("enemy")
+
+func get_enemy_archetypes() -> Dictionary:
+	return get_section("enemy_archetypes")
+
+func get_weapon_definitions() -> Dictionary:
+	var definitions: Variant = get_section("weapons").get("definitions", {})
+	if definitions is Dictionary:
+		return definitions
+	return {}
+
+func get_starting_weapon_id() -> String:
+	return str(get_section("weapons").get("starting_weapon", ""))
 
 func get_waves_config() -> Dictionary:
 	return get_section("waves")
